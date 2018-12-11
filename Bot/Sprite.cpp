@@ -1,18 +1,21 @@
 #include "Sprite.h"
+#include <SDL.h>
 
 
+namespace Bot {
 
-Sprite::Sprite()
-{
-}
+	Sprite::Sprite()
+	{
+	}
 
-/* Saker som classen kommer behöva
-gravity
-collision
-bouncy
+	/* Saker som classen kommer behöva
+	gravity
+	collision
+	bouncy
 
-*/
+	*/
 
-Sprite::~Sprite()
-{
+	Sprite::~Sprite()
+	{
+	}
 }

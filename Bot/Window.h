@@ -16,12 +16,13 @@ namespace Bot {
 		SDL_Renderer* getRen() {
 			return ren;
 		}
-
 	private:
 		SDL_Window* win;
 		SDL_Renderer* ren;
 
 	};
+	extern Window win;
+	
 
 }
 #endif

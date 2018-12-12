@@ -1,5 +1,4 @@
 #include "Window.h"
-#include <SDL.h>
 
 
 namespace Bot {

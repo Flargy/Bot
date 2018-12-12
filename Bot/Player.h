@@ -7,13 +7,16 @@
 
 namespace Bot {
 
-	class Player
+	class Player : public Sprite
 	{
 
 	protected:
-		Player(const char* path);
+		Player(const char* path, int x, int y);
 	public:
+		static Player* getInstance(const char* path, int x = 0, int y = 0);
 		~Player();
+	private:
+		int x, y;
 	};
 }
 #endif

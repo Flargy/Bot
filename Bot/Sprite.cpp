@@ -1,10 +1,10 @@
 #include "Sprite.h"
-#include <SDL.h>
+#include "Window.h"
 
 
 namespace Bot {
 
-	Sprite::Sprite()
+	Sprite::Sprite(const char* path, int x, int y)
 	{
 	}
 

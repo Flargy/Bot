@@ -2,6 +2,7 @@
 #define SPRITE_H
 #pragma once
 #include <SDL.h>
+#include <SDL_image.h>
 
 namespace Bot {
 
@@ -10,7 +11,7 @@ namespace Bot {
 	
 	protected:
 
-		Sprite();
+		Sprite(const char* path, int x, int y);
 
 	public:
 
@@ -20,9 +21,11 @@ namespace Bot {
 		void setTexture(SDL_Texture* tx) {}
 		virtual ~Sprite();
 
+		//virtual Sprite* getInstance() = 0;
+
 		
 	private:
-		SDL_Surface surf;
+		SDL_Surface* surf;
 		SDL_Rect rect;
 		SDL_Texture* tx;
 

@@ -6,13 +6,14 @@
 #include <SDL_image.h>
 
 namespace Bot {
-	class Objects
+	class Objects : public Sprite
 	{
 
 	protected:
-		Objects(const char* path);
+		Objects(const char* path, int x, int y);
 	public:
 		~Objects();
+		Objects* getInstance(const char* path, int x, int y);
 	};
 }
 #endif

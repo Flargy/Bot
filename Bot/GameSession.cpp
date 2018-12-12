@@ -1,9 +1,10 @@
 #include "GameSession.h"
-#include <SDL.h>
-#include <vector>
+#include "Window.h"
+
 
 using namespace std;
 namespace Bot {
+	Window win;
 
 	GameSession::GameSession()
 	{
@@ -18,6 +19,10 @@ namespace Bot {
 	add function
 	remove funktion
 	*/
+
+	void GameSession::add(Sprite* s) {
+		addSprite.push_back(s);
+	}
 
 	void GameSession::run() {
 		bool quit = false;
@@ -38,13 +43,20 @@ namespace Bot {
 			addSprite.clear();
 
 			for (Sprite* s : removeSprite) {
-				for (vector<Sprite*>::iterator i = spriteVec.begin(); i != spriteVec = spriteVec.end();) {
+				for (vector<Sprite*>::iterator i = spriteVec.begin(); i != spriteVec.end();) {
 					if (*i == s) {
 						i == spriteVec.erase(i);
 						delete s;
-					}
-				}
-			}
+					}//if
+					else i++;
+				}//inner for
+				removeSprite.clear();
+
+				SDL_RenderClear(win.getRen());
+				for (Sprite* s : spriteVec)
+					int a = 0;
+				
+			}//outer for
 
 		}//yttre while
 	}//GameSession run

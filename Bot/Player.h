@@ -11,7 +11,7 @@ namespace Bot {
 	{
 
 	protected:
-		Player();
+		Player(const char* path);
 	public:
 		~Player();
 	};

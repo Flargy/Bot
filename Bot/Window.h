@@ -3,6 +3,7 @@
 #pragma once
 #include <SDL.h>
 
+
 namespace Bot {
 	class Window
 	{

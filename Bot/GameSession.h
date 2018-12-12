@@ -9,15 +9,15 @@ namespace Bot {
 	{
 	public:
 		GameSession();
-		void add();
+		void add(Sprite*);
 		void run();
-		void remove();
+		void remove(Sprite*);
 		~GameSession();
 
 	private:
 		std::vector<Sprite*> spriteVec;
-		std::vector<Sprite&> removeSprite;
-		std::vector<Sprite&> addSprite;
+		std::vector<Sprite*> removeSprite;
+		std::vector<Sprite*> addSprite;
 	};
 
 }

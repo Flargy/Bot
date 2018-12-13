@@ -1,8 +1,7 @@
 #include "Window.h"
-
-
 namespace Bot {
 
+	Window win;
 
 	Window::Window()
 	{
@@ -15,5 +14,7 @@ namespace Bot {
 
 	Window::~Window()
 	{
+		SDL_DestroyWindow(win);
+		SDL_DestroyRenderer(ren);
 	}
 }

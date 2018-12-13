@@ -19,6 +19,7 @@ namespace Bot {
 		std::vector<Sprite*> removeSprite;
 		std::vector<Sprite*> addSprite;
 	};
-
+	
+	
 }
 #endif

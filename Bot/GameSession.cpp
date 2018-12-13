@@ -1,10 +1,11 @@
 #include "GameSession.h"
 #include "Window.h"
+#include <iostream>
 
 
 using namespace std;
 namespace Bot {
-	Window win;
+
 
 	GameSession::GameSession()
 	{
@@ -23,16 +24,20 @@ namespace Bot {
 	void GameSession::add(Sprite* s) {
 		addSprite.push_back(s);
 	}
-
+	
 	void GameSession::run() {
 		bool quit = false;
+		//Window* win = new Window();
 
 		while (!quit) {
 			SDL_Event event;
 			while (SDL_PollEvent(&event)) {
+				//cout << quit;
+				// %eventkey.keysym.sym
 				switch (event.type) {
+				case SDLK_LEFT:cout << " inne is inner while "; break;
 					case SDL_QUIT: quit = true; break;
-
+					case SDL_KEYDOWN: quit = true; break;
 
 				}//switch
 
@@ -57,8 +62,9 @@ namespace Bot {
 					int a = 0;
 				
 			}//outer for
-
+			
 		}//yttre while
+		delete &win;
 	}//GameSession run
 
 	GameSession::~GameSession()

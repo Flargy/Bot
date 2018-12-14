@@ -15,7 +15,7 @@ namespace Bot {
 
 	public:
 
-
+		const char* path;
 		SDL_Rect getRect() {return rect;}
 		SDL_Texture* getTexture() {return tx;}
 		void setTexture(SDL_Texture* tx) {}
@@ -30,7 +30,7 @@ namespace Bot {
 		SDL_Texture* tx;
 
 	};
-
+	extern Sprite spr;
 
 
 }

@@ -1,7 +1,6 @@
 #include "Window.h"
 namespace Bot {
 
-	Window win;
 
 	Window::Window()
 	{

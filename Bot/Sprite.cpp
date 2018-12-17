@@ -1,7 +1,7 @@
 #include "Sprite.h"
-#include "Window.h"
 #include "GameSession.h"
 #include <SDL_image.h>
+#include <SDL.h>
 #include <iostream>
 
 using namespace std;
@@ -11,10 +11,10 @@ namespace Bot {
 	Sprite::Sprite(const char* path, int x, int y)
 	{
 		//gs = GameSession::Instance();
-		SDL_Surface* surf = IMG_Load(path);
-		cout << "\n" << "SDL_Window: " << win->getWin();
-		SDL_Texture* tx = SDL_CreateTextureFromSurface(win->getRen(), surf);
-		SDL_Rect rect = { 0, 0, surf->w, surf->h };
+		cout << path;
+		surf = IMG_Load(path);
+		tx = SDL_CreateTextureFromSurface(win->getRen(), surf);
+		rect = { 0, 0, surf->w, surf->h };
 
 		SDL_FreeSurface(surf);
 		
@@ -23,6 +23,11 @@ namespace Bot {
 		gs->add(this);
 
 
+	}
+
+	void Sprite::draw() {
+		cout << "\n" << "drawing pictures";
+		SDL_RenderCopy(win->getRen(), getTexture(), NULL, &getRect());
 	}
 
 

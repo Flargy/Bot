@@ -20,6 +20,7 @@ namespace Bot {
 		SDL_Texture* getTexture() {return tx;}
 		void setTexture(SDL_Texture* tx) {}
 		virtual ~Sprite();
+		void draw();
 
 		//virtual Sprite* getInstance() = 0;
 

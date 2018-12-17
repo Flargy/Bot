@@ -1,6 +1,7 @@
 #ifndef GAMESESSION_H
 #define GAMESESSION_H
 #include "Sprite.h"
+#include "Window.h"
 #include <vector>
 
 
@@ -17,7 +18,7 @@ namespace Bot {
 		
 
 	private:
-		//std::vector<Sprite*> spriteVec;
+		std::vector<Sprite*> spriteVec;
 		//std::vector<Sprite*> removeSprite;
 		//std::vector<Sprite*> addSprite;
 		static GameSession* instance;

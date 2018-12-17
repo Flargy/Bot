@@ -9,10 +9,6 @@ namespace Bot {
 		SDL_Init(SDL_INIT_EVERYTHING);
 		wind = SDL_CreateWindow("Bot", 100, 100, 800, 600, 0);
 		ren = SDL_CreateRenderer(wind, -1, 0);
-
-		
-
-
 	}
 
 

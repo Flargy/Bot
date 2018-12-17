@@ -1,5 +1,5 @@
 #include "GameSession.h"
-#include "Window.h"
+
 #include "Sprite.h"
 #include <iostream>
 
@@ -10,7 +10,7 @@ namespace Bot {
 	GameSession* GameSession::instance = NULL;
 	//Window* win;
 	std::vector<Sprite*> addSprite;
-	std::vector<Sprite*> spriteVec;
+	//std::vector<Sprite*> spriteVec;
 	std::vector<Sprite*> removeSprite;
 
 	GameSession* GameSession::Instance() {
@@ -24,9 +24,7 @@ namespace Bot {
 	GameSession::GameSession()
 	{
 		win = new Window();
-		cout << "\n" << "window created: " << win;
-		cout << "\n" << "Window referens: " << &win;
-		cout << "\n" << "SDL_Window: " << win->getWin();
+		
 	}
 
 	
@@ -45,22 +43,30 @@ namespace Bot {
 		addSprite.push_back(s);
 
 
-		for (std::vector<Sprite*>::const_iterator i = addSprite.begin(); i != addSprite.end(); ++i)
-			std::cout << *i << ' ';
+		/*for (std::vector<Sprite*>::const_iterator i = addSprite.begin(); i != addSprite.end(); ++i)
+			std::cout << *i << ' ';*/
 	}
 	
 	void GameSession::run() {
+		/*for (Sprite* s : addSprite) {
+			s->draw();
+			//SDL_RenderCopy(win->getRen(), s->getTexture(), NULL, &s->getRect());
+		}
 
-		cout << "\n" << "run has started";
+
+		SDL_Delay(50000);*/
 
 
 		
 		bool quit = false;
 
 		while (!quit) {
+			
+			
+			
+			
 			SDL_Event event;
 			while (SDL_PollEvent(&event)) {
-				cout << "\n" << "inside event while";
 				//cout << quit;
 				// %eventkey.keysym.sym
 				switch (event.type) {
@@ -69,19 +75,16 @@ namespace Bot {
 					//case SDL_KEYDOWN: quit = true; break;
 
 				}//switch
-				cout << "\n" << "exits event while";
 
 				for (Sprite* s : addSprite) {
-				cout << "\n" << "inside for loop of add sprite";
 				spriteVec.push_back(s);
 			}
 				addSprite.clear();
 
 
 
-				for (Sprite* s : removeSprite) {
+		/*		for (Sprite* s : removeSprite) {
 					for (vector<Sprite*>::iterator i = spriteVec.begin(); i != spriteVec.end();) {
-						cout <<"\n" <<" remove akriverades ";
 						if (*i == s) {
 							i == spriteVec.erase(i);
 							delete s;
@@ -89,29 +92,27 @@ namespace Bot {
 						else i++;
 					}//inner for
 				}
-				removeSprite.clear();
-				cout << "\n" << "cleared remove sprite";
+				removeSprite.clear();*/
 				SDL_RenderClear(win->getRen());
 
 				for (Sprite* s : spriteVec) {
-					SDL_RenderCopy(win->getRen(), s->getTexture(), NULL, &s->getRect());
-					cout << "\n" << "render copy lyckades";
+					s->draw();
+					//SDL_RenderCopy(win->getRen(), s->getTexture(), NULL, &s->getRect());
 				}//outer for
 				//SDL_SetRenderDrawColor(win->getRen(), 255, 50, 0, 255);
 
-
+				SDL_SetRenderDrawColor(win->getRen(), 255, 0, 0, 255);
 
 				SDL_RenderPresent(win->getRen());
-				cout << "\n" << "rendererd stuff was presented";
 
 
 			}//inre while
 
-
+			
 
 
 		}//yttre while
-		delete win;
+		delete win;     
 	}//GameSession run
 
 	GameSession::~GameSession()

@@ -11,17 +11,17 @@ namespace Bot {
 		Window();
 		~Window();
 		SDL_Window* getWin() {
-			return win;
+			return wind;
 		}
 		SDL_Renderer* getRen() {
 			return ren;
 		}
 	private:
-		SDL_Window* win;
+		SDL_Window* wind;
 		SDL_Renderer* ren;
 
 	};
-	
+	extern Window* win;
 
 }
 #endif

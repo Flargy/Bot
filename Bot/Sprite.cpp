@@ -7,26 +7,21 @@
 using namespace std;
 namespace Bot {
 	GameSession* gs;
-	Window* win = gs->win;
+	Window* win;
 	Sprite::Sprite(const char* path, int x, int y)
 	{
-		
-		cout << "konstruktor startades";
-		gs = GameSession::Instance();
-		cout << "\n" << "gameSession instansen fixades";
-		cout << path;
+		//gs = GameSession::Instance();
 		SDL_Surface* surf = IMG_Load(path);
-		if (surf == NULL)
-			cout << "   surf is null  "  << SDL_GetError() << "\n";
+		cout << "\n" << "SDL_Window: " << win->getWin();
 		SDL_Texture* tx = SDL_CreateTextureFromSurface(win->getRen(), surf);
-		if (tx == NULL)
-			cout << "texture is null";
 		SDL_Rect rect = { 0, 0, surf->w, surf->h };
 
-		gs->add(this);
-		cout << "\n" << "stuff should have been added to add";
+		SDL_FreeSurface(surf);
+		
+		//this->path = path;
 
-		this->path = path;
+		gs->add(this);
+
 
 	}
 

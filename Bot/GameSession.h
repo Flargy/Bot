@@ -14,13 +14,13 @@ namespace Bot {
 		void remove(Sprite*);
 		~GameSession();
 		static GameSession* Instance();
+		
 
 	private:
-		std::vector<Sprite*> spriteVec;
-		std::vector<Sprite*> removeSprite;
-		std::vector<Sprite*> addSprite;
+		//std::vector<Sprite*> spriteVec;
+		//std::vector<Sprite*> removeSprite;
+		//std::vector<Sprite*> addSprite;
 		static GameSession* instance;
-		Window* win;
 	};
 	
 	

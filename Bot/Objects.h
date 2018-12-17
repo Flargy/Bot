@@ -7,6 +7,7 @@
 
 namespace Bot {
 	class Objects : public Sprite
+		
 	{
 
 	protected:

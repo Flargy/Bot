@@ -14,6 +14,9 @@ namespace Bot {
 		rect = { 0, 0, surf->w, surf->h };
 
 		SDL_FreeSurface(surf);
+
+		rect.x += x;
+		rect.y += y;
 		
 
 		gs->add(this);
@@ -22,6 +25,7 @@ namespace Bot {
 	}
 
 	void Sprite::draw() {
+		rect.x++;
 		SDL_RenderCopy(gs->getWindow()->getRen(), getTexture(), NULL, &getRect());
 	}
 

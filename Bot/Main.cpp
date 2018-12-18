@@ -20,7 +20,7 @@ int main(int argc, char** argv) {
 	Background::getInstance("D:/GitHubRepositories/Bot/Bot/bg.jpg");
 
 
-	Player :: getInstance("D:/GitHubRepositories/Bot/Bot/robot.jpg");
+	Player :: getInstance("D:/GitHubRepositories/Bot/Bot/FrictionBot.png", 200, 200);
 
 
 		gs->run();

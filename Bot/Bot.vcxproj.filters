@@ -36,6 +36,9 @@
     <ClCompile Include="Background.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
@@ -56,12 +59,18 @@
     <ClInclude Include="Background.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="bg.jpg">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="robot.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="FrictionBot.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

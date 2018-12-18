@@ -16,7 +16,7 @@ namespace Bot {
 		static Player* getInstance(const char* path, int x = 0, int y = 0);
 		~Player();
 	private:
-		int x, y;
+		int x , y;
 	};
 }
 #endif

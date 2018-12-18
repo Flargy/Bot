@@ -9,6 +9,7 @@ namespace Bot {
 	GameSession* GameSession::instance = NULL;
 	GameSession* gs;
 	//Window* win;
+
 	std::vector<Sprite*> addSprite;
 	//std::vector<Sprite*> spriteVec;
 	std::vector<Sprite*> removeSprite;
@@ -71,44 +72,38 @@ namespace Bot {
 				//cout << quit;
 				// %eventkey.keysym.sym
 				switch (event.type) {
-				case SDLK_LEFT:cout << " inne is inner while "; break;
+				case SDL_KEYDOWN:cout << " inne is inner while "; break;
 				case SDL_QUIT: quit = true; break;
 					//case SDL_KEYDOWN: quit = true; break;
 
 				}//switch
-
-				for (Sprite* s : addSprite) {
+			}//inre while
+			for (Sprite* s : addSprite) {
 				spriteVec.push_back(s);
 			}
-				addSprite.clear();
+			addSprite.clear();
 
 
-				for (Sprite* s : removeSprite) {
-					for (vector<Sprite*>::iterator i = spriteVec.begin(); i != spriteVec.end();) {
-						if (*i == s) {
-							i == spriteVec.erase(i);
-							delete s;
-						}//if
-						else i++;
-					}//inner for
-				}
-				removeSprite.clear();
-				SDL_RenderClear(win->getRen());
+			for (Sprite* s : removeSprite) {
+				for (vector<Sprite*>::iterator i = spriteVec.begin(); i != spriteVec.end();) {
+					if (*i == s) {
+						i == spriteVec.erase(i);
+						delete s;
+					}//if
+					else i++;
+				}//inner for
+			}
+			removeSprite.clear();
+			SDL_RenderClear(win->getRen());
 
-				for (Sprite* s : spriteVec) {
-					s->draw();
-					//SDL_RenderCopy(win->getRen(), s->getTexture(), NULL, &s->getRect());
-				}//outer for
-				//SDL_SetRenderDrawColor(win->getRen(), 255, 50, 0, 255);
+			for (Sprite* s : spriteVec) {
+				
+				s->draw();
+				//SDL_RenderCopy(win->getRen(), s->getTexture(), NULL, &s->getRect());
+			}//outer for
+			 //SDL_SetRenderDrawColor(win->getRen(), 255, 50, 0, 255);
 
-				SDL_SetRenderDrawColor(win->getRen(), 255, 0, 0, 255);
-
-				SDL_RenderPresent(win->getRen());
-
-
-			}//inre while
-
-			
+			SDL_RenderPresent(win->getRen());
 
 
 		}//yttre while

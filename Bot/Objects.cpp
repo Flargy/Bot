@@ -7,6 +7,8 @@ namespace Bot {
 
 	}
 	Objects* Objects::getInstance(const char* path, int x, int y) {
+
+		
 		return new Objects(path, x, y);
 	}
 

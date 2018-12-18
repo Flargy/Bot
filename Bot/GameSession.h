@@ -15,6 +15,8 @@ namespace Bot {
 		void remove(Sprite*);
 		~GameSession();
 		static GameSession* Instance();
+		Window* getWindow() { return win; }
+		Window* win;
 		
 
 	private:
@@ -22,8 +24,10 @@ namespace Bot {
 		//std::vector<Sprite*> removeSprite;
 		//std::vector<Sprite*> addSprite;
 		static GameSession* instance;
+
 	};
-	
+
+	extern GameSession* gs;
 	
 }
 #endif

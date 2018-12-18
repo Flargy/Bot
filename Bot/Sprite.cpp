@@ -6,19 +6,15 @@
 
 using namespace std;
 namespace Bot {
-	GameSession* gs;
-	Window* win;
+	//Window* win;
 	Sprite::Sprite(const char* path, int x, int y)
 	{
-		//gs = GameSession::Instance();
-		cout << path;
 		surf = IMG_Load(path);
-		tx = SDL_CreateTextureFromSurface(win->getRen(), surf);
+		tx = SDL_CreateTextureFromSurface(gs->getWindow()->getRen(), surf);
 		rect = { 0, 0, surf->w, surf->h };
 
 		SDL_FreeSurface(surf);
 		
-		//this->path = path;
 
 		gs->add(this);
 
@@ -26,8 +22,7 @@ namespace Bot {
 	}
 
 	void Sprite::draw() {
-		cout << "\n" << "drawing pictures";
-		SDL_RenderCopy(win->getRen(), getTexture(), NULL, &getRect());
+		SDL_RenderCopy(gs->getWindow()->getRen(), getTexture(), NULL, &getRect());
 	}
 
 

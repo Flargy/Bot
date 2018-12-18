@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
 
 
 
-	GameSession* gs = GameSession::Instance();
+	 GameSession::Instance();
 
 
 	

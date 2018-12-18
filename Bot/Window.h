@@ -21,7 +21,7 @@ namespace Bot {
 		SDL_Renderer* ren;
 
 	};
-	extern Window* win;
+	//extern Window* win;
 
 }
 #endif

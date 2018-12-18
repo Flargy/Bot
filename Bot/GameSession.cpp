@@ -6,8 +6,8 @@
 
 using namespace std;
 namespace Bot {
-	//Window* win = new Window();
 	GameSession* GameSession::instance = NULL;
+	GameSession* gs;
 	//Window* win;
 	std::vector<Sprite*> addSprite;
 	//std::vector<Sprite*> spriteVec;
@@ -16,14 +16,15 @@ namespace Bot {
 	GameSession* GameSession::Instance() {
 		if (!instance)
 			instance = new GameSession;
-
-
+		gs = instance;
 		return instance;
 	}
 
 	GameSession::GameSession()
 	{
 		win = new Window();
+		cout << "\n" << "Gamesession window: " << win->getWin();
+		cout << "\n" << "gamesession window renderer: " << win->getRen();
 		
 	}
 
@@ -82,8 +83,7 @@ namespace Bot {
 				addSprite.clear();
 
 
-
-		/*		for (Sprite* s : removeSprite) {
+				for (Sprite* s : removeSprite) {
 					for (vector<Sprite*>::iterator i = spriteVec.begin(); i != spriteVec.end();) {
 						if (*i == s) {
 							i == spriteVec.erase(i);
@@ -92,7 +92,7 @@ namespace Bot {
 						else i++;
 					}//inner for
 				}
-				removeSprite.clear();*/
+				removeSprite.clear();
 				SDL_RenderClear(win->getRen());
 
 				for (Sprite* s : spriteVec) {

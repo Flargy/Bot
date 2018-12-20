@@ -4,23 +4,12 @@
 #include <SDL.h>
 #include <iostream>
 
+using namespace std;
 namespace Bot {
 	//Window* win;
-	Sprite::Sprite(const char* path, int x, int y)
-	{
-		surf = IMG_Load(path);
-		tx = SDL_CreateTextureFromSurface(gs->getWindow()->getRen(), surf);
 
-		SDL_FreeSurface(surf);
-
-		rect.x += x;
-		rect.y += y;
-		
-
-		gs->add(this);
-	}
-
-	Sprite::Sprite(const char* path, int x, int y, bool isPlayer) {
+	Sprite::Sprite(const char* path, int x, int y, int collide) {
+		cout << "\n" << "second cunstructor activated";
 		surf = IMG_Load(path);
 		tx = SDL_CreateTextureFromSurface(gs->getWindow()->getRen(), surf);
 		rect = { 0, 0, surf->w, surf->h };
@@ -29,7 +18,9 @@ namespace Bot {
 
 		rect.x += x;
 		rect.y += y;
-		this->isPlayer = isPlayer;
+		this->collide = collide;
+
+		gs->add(this);
 
 	}
 

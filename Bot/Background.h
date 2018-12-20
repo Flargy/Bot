@@ -11,12 +11,13 @@ namespace Bot {
 	{
 
 	protected:
-		Background(const char*, int x, int y);
+		Background(const char* path, int x, int y);
 	public:
 		static Background* getInstance(const char* path, int x = 0, int y = 0);
 		~Background();
 	private:
 		int x, y;
 	};
+	extern Background* bg;
 }
 #endif

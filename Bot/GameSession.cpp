@@ -1,7 +1,8 @@
 #include "GameSession.h"
-
+#include "Background.h"
 #include "Sprite.h"
 #include <iostream>
+#include "Collision.h"
 
 
 using namespace std;
@@ -24,8 +25,6 @@ namespace Bot {
 	GameSession::GameSession()
 	{
 		win = new Window();
-		cout << "\n" << "Gamesession window: " << win->getWin();
-		cout << "\n" << "gamesession window renderer: " << win->getRen();
 		
 	}
 
@@ -93,11 +92,26 @@ namespace Bot {
 					else i++;
 				}//inner for
 			}
+
 			removeSprite.clear();
+
+			for (Sprite* s : spriteVec) {
+				if (s->getTag() == 2) {
+					Sprite* p = s;
+					for (Sprite* r : spriteVec) {
+						if (r->getTag() == 3) {
+							if (Collision::AABB(p->getRect(), r->getRect())) {
+								cout << "\n" << "stuff is colliding with the player";
+							}
+						
+						}
+					}
+				}
+			}
+
 			SDL_RenderClear(win->getRen());
 
 			for (Sprite* s : spriteVec) {
-
 				s->draw();
 				//SDL_RenderCopy(win->getRen(), s->getTexture(), NULL, &s->getRect());
 			}//outer for

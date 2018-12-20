@@ -4,6 +4,7 @@
 #include "Window.h"
 #include "Player.h"
 #include "Background.h"
+#include "Objects.h"
 #include <iostream>
 
 using namespace std;
@@ -19,8 +20,9 @@ int main(int argc, char** argv) {
 	
 	Background::getInstance("D:/GitHubRepositories/Bot/Bot/bg.jpg");
 
-
 	Player :: getInstance("D:/GitHubRepositories/Bot/Bot/FrictionBot.png", 200, 200);
+
+	Objects::getInstance("D:/GitHubRepositories/Bot/Bot/robot.jpg", 260, 260);
 
 
 		gs->run();

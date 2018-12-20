@@ -1,11 +1,12 @@
 #include "Background.h"
-#include "Window.h"
 
 
 
 namespace Bot {
 
-	Background::Background(const char* path, int x, int y):Sprite(path,x,y)
+	Background* bg;
+
+	Background::Background(const char* path, int x, int y):Sprite(path,x,y, 1)
 	{ 
 	}
 

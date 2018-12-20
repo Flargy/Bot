@@ -97,7 +97,7 @@ namespace Bot {
 			SDL_RenderClear(win->getRen());
 
 			for (Sprite* s : spriteVec) {
-				
+
 				s->draw();
 				//SDL_RenderCopy(win->getRen(), s->getTexture(), NULL, &s->getRect());
 			}//outer for

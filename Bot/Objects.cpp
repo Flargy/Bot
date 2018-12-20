@@ -2,7 +2,7 @@
 #include "Sprite.h"
 
 namespace Bot {
-	Objects::Objects(const char* path, int x, int y):Sprite(path, x,y)
+	Objects::Objects(const char* path, int x, int y):Sprite(path, x,y, false)
 	{ 
 
 	}

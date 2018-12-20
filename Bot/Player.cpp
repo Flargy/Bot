@@ -4,7 +4,7 @@
 
 namespace Bot {
 
-	Player::Player(const char* path, int x, int y):Sprite(path,x,y)
+	Player::Player(const char* path, int x, int y):Sprite(path,x,y, true)
 	{ 
 	}
 

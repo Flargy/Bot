@@ -15,6 +15,9 @@ namespace Bot {
 	public:
 		~Objects();
 		Objects* getInstance(const char* path, int x, int y);
+
+	private:
+		
 	};
 }
 #endif

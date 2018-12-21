@@ -13,6 +13,7 @@ namespace Bot {
 	protected:
 		Player(const char* path, int x, int y);
 	public:
+		void buttonEvent(SDL_KeyboardEvent event){}
 		static Player* getInstance(const char* path, int x = 0, int y = 0);
 		~Player();
 	private:

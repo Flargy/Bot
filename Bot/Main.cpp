@@ -18,13 +18,15 @@ int main(int argc, char** argv) {
 
 
 	
-	Background::getInstance("D:/GitHubRepositories/Bot/Bot/bg.jpg");
+	Background::getInstance("E:/ar2/GitHub/Bild/bg.jpg");
 
-	Player :: getInstance("D:/GitHubRepositories/Bot/Bot/FrictionBot.png", 200, 200);
+	Player :: getInstance("E:/ar2/GitHub/Bild/blue.png", 200, 200);
 
-	Objects::getInstance("D:/GitHubRepositories/Bot/Bot/robot.jpg", 260, 260);
-
-
+	Objects::getInstance("E:/ar2/GitHub/Bild/robit.jpg", 220, 220);
+	std::cout << gs->getFps();
+	gs->setFps(60);
+	std::cout << gs->getFps();
+		
 		gs->run();
 
 	return 0;

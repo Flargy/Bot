@@ -9,6 +9,7 @@ using namespace std;
 namespace Bot {
 	GameSession* GameSession::instance = NULL;
 	GameSession* gs;
+	int x = 0;
 	//Window* win;
 
 	std::vector<Sprite*> addSprite;
@@ -28,42 +29,26 @@ namespace Bot {
 		
 	}
 
-	
-	/*Saker som kommer behövas
-	3 vektorer
-	add
-	remove
-	sprites
-
-	run loop
-	add function
-	remove funktion
-	*/
+	void GameSession::setFps(int FPSN) {
+		FPS = FPSN;
+		frameDelay = 1000 / FPS;
+	}
 
 	void GameSession::add(Sprite* s) {
 		addSprite.push_back(s);
-
-
-		/*for (std::vector<Sprite*>::const_iterator i = addSprite.begin(); i != addSprite.end(); ++i)
-			std::cout << *i << ' ';*/
 	}
 	
 	void GameSession::run() {
-		/*for (Sprite* s : addSprite) {
-			s->draw();
-			//SDL_RenderCopy(win->getRen(), s->getTexture(), NULL, &s->getRect());
-		}
-
-
-		SDL_Delay(50000);*/
-
+	
 
 		
 		bool quit = false;
 
 		while (!quit) {
 			
+			frameStart = SDL_GetTicks();
 			
+			std::cout << "Counter" << x++<< endl;
 			
 			
 			SDL_Event event;
@@ -71,9 +56,10 @@ namespace Bot {
 				//cout << quit;
 				// %eventkey.keysym.sym
 				switch (event.type) {
-				case SDL_KEYDOWN:cout << " inne is inner while "; break;
+				case SDL_KEYDOWN: ; break;
+				case SDL_MOUSEBUTTONDOWN: break;
 				case SDL_QUIT: quit = true; break;
-					//case SDL_KEYDOWN: quit = true; break;
+				
 
 				}//switch
 			}//inre while
@@ -81,8 +67,7 @@ namespace Bot {
 				spriteVec.push_back(s);
 			}
 			addSprite.clear();
-
-
+			
 			for (Sprite* s : removeSprite) {
 				for (vector<Sprite*>::iterator i = spriteVec.begin(); i != spriteVec.end();) {
 					if (*i == s) {
@@ -101,7 +86,7 @@ namespace Bot {
 					for (Sprite* r : spriteVec) {
 						if (r->getTag() == 3) {
 							if (Collision::AABB(p->getRect(), r->getRect())) {
-								cout << "\n" << "stuff is colliding with the player";
+								//cout << "\n" << "stuff is colliding with the player";
 							}
 						
 						}
@@ -118,6 +103,10 @@ namespace Bot {
 			 //SDL_SetRenderDrawColor(win->getRen(), 255, 50, 0, 255);
 
 			SDL_RenderPresent(win->getRen());
+			frameTime = SDL_GetTicks() - frameStart;
+			if (frameDelay > frameTime) {
+				SDL_Delay(frameDelay - frameTime);
+			}
 
 
 		}//yttre while

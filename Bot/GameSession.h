@@ -15,6 +15,8 @@ namespace Bot {
 		void remove(Sprite*);
 		~GameSession();
 		static GameSession* Instance();
+		void setFps(int FPSN);
+		int getFps() { return FPS; }
 		Window* getWindow() { return win; }
 		Window* win;
 		
@@ -24,7 +26,10 @@ namespace Bot {
 		//std::vector<Sprite*> removeSprite;
 		//std::vector<Sprite*> addSprite;
 		static GameSession* instance;
-
+		int FPS = 2;
+		int frameDelay = 1000 / FPS;
+		Uint32 frameStart;
+		int frameTime;
 	};
 
 	extern GameSession* gs;

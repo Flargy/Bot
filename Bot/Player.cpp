@@ -7,12 +7,16 @@ namespace Bot {
 	Player::Player(const char* path, int x, int y):Sprite(path,x,y, 2)
 	{ 
 	}
-	void buttonEvent(SDL_Event event) {
-		switch (SDL_PollEvent(&event)) {
-		case SDLK_LEFT: break;
-		case SDLK_RIGHT: break;
-		}
-}
+	void Player::moveRight() {
+		getRect()->x++;
+	}
+	void Player::moveLeft() {
+		getRect()->x --;
+		
+	}
+	void Player::setPlayer() {
+		spr = this;
+	}
 	Player* Player::getInstance(const char* path, int x, int y) {
 		return new Player(path, x, y);
 	}

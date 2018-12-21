@@ -9,6 +9,8 @@ using namespace std;
 namespace Bot {
 	GameSession* GameSession::instance = NULL;
 	GameSession* gs;
+	
+	
 	int x = 0;
 	//Window* win;
 
@@ -48,7 +50,7 @@ namespace Bot {
 			
 			frameStart = SDL_GetTicks();
 			
-			std::cout << "Counter" << x++<< endl;
+		
 			
 			
 			SDL_Event event;
@@ -56,7 +58,9 @@ namespace Bot {
 				//cout << quit;
 				// %eventkey.keysym.sym
 				switch (event.type) {
-				case SDL_KEYDOWN: ; break;
+				case SDL_KEYDOWN:
+					spr->moveRight(); 
+					break;
 				case SDL_MOUSEBUTTONDOWN: break;
 				case SDL_QUIT: quit = true; break;
 				

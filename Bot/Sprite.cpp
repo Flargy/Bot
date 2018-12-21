@@ -7,8 +7,9 @@
 using namespace std;
 namespace Bot {
 	//Window* win;
-
+	Sprite* spr;
 	Sprite::Sprite(const char* path, int x, int y, int collide) {
+		
 		cout << "\n" << "second cunstructor activated";
 		surf = IMG_Load(path);
 		tx = SDL_CreateTextureFromSurface(gs->getWindow()->getRen(), surf);
@@ -25,7 +26,7 @@ namespace Bot {
 	}
 
 	void Sprite::draw() {
-		SDL_RenderCopy(gs->getWindow()->getRen(), getTexture(), NULL, &getRect());
+		SDL_RenderCopy(gs->getWindow()->getRen(), getTexture(), NULL, getRect());
 	}
 
 

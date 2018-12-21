@@ -16,12 +16,14 @@ namespace Bot {
 	public:
 
 		const char* path;
-		SDL_Rect getRect() {return rect;}
+		SDL_Rect* getRect() {return &rect;}
 		SDL_Texture* getTexture() {return tx;}
 		int getTag() { return collide; }
 		void setTexture(SDL_Texture* tx) {}
 		virtual ~Sprite();
 		void draw();
+		virtual void moveLeft() {}
+		virtual void moveRight() {}
 
 		//virtual Sprite* getInstance() = 0;
 
@@ -33,7 +35,7 @@ namespace Bot {
 		int collide;
 
 	};
-	extern Sprite spr;
+	extern Sprite* spr;
 
 
 }

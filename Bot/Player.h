@@ -16,8 +16,15 @@ namespace Bot {
 		void buttonEvent(SDL_KeyboardEvent event){}
 		static Player* getInstance(const char* path, int x = 0, int y = 0);
 		~Player();
+		void moveLeft();
+		void moveRight();
+		void pasueFun();
+		Player* getPlayer() { return this; }
+		void setPlayer();
 	private:
 		int x , y;
 	};
+	
+	
 }
 #endif

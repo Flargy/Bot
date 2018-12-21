@@ -15,14 +15,13 @@ int main(int argc, char** argv) {
 
 
 	 GameSession::Instance();
-
+	 
 
 	
-	Background::getInstance("E:/ar2/GitHub/Bild/bg.jpg");
+	Background::getInstance("F:/ar2/GitHub/Bild/bg.jpg");
 
-	Player :: getInstance("E:/ar2/GitHub/Bild/blue.png", 200, 200);
-
-	Objects::getInstance("E:/ar2/GitHub/Bild/robit.jpg", 220, 220);
+	Player :: getInstance("F:/ar2/GitHub/Bild/blue.png", 200, 200)->setPlayer();
+	Objects::getInstance("F:/ar2/GitHub/Bild/robit.jpg", 220, 220);
 	std::cout << gs->getFps();
 	gs->setFps(60);
 	std::cout << gs->getFps();

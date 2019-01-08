@@ -3,7 +3,9 @@
 
 namespace Bot {
 
-	Objects::Objects(const char* path, int x, int y):Sprite(path, x,y, 3)
+	Objects* obj;
+
+	Objects::Objects(const char* path, int x, int y):Transform(path, x,y, 3)
 	{ 
 
 	}

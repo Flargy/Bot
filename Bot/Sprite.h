@@ -24,11 +24,15 @@ namespace Bot {
 		void draw();
 		virtual void moveLeft() {}
 		virtual void moveRight() {}
+		virtual void updatePosition(){}
+		virtual void bounce() {}
+		virtual void fallSpeed(float i) {}
 
 		//virtual Sprite* getInstance() = 0;
 
 		
 	private:
+
 		SDL_Surface* surf;
 		SDL_Rect rect;
 		SDL_Texture* tx;

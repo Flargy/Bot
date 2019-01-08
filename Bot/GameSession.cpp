@@ -1,6 +1,5 @@
 #include "GameSession.h"
 #include "Background.h"
-#include "Sprite.h"
 #include <iostream>
 #include "Collision.h"
 
@@ -11,7 +10,7 @@ namespace Bot {
 	GameSession* gs;
 	
 	
-	int x = 0;
+	//int x = 0;
 	//Window* win;
 
 	std::vector<Sprite*> addSprite;
@@ -55,8 +54,6 @@ namespace Bot {
 			
 			SDL_Event event;
 			while (SDL_PollEvent(&event)) {
-				//cout << quit;
-				// %eventkey.keysym.sym
 				switch (event.type) {
 				case SDL_KEYDOWN:
 					spr->moveRight(); 
@@ -90,7 +87,7 @@ namespace Bot {
 					for (Sprite* r : spriteVec) {
 						if (r->getTag() == 3) {
 							if (Collision::AABB(p->getRect(), r->getRect())) {
-								//cout << "\n" << "stuff is colliding with the player";
+								p->bounce();
 							}
 						
 						}
@@ -100,11 +97,19 @@ namespace Bot {
 
 			SDL_RenderClear(win->getRen());
 
+
+
+
 			for (Sprite* s : spriteVec) {
+				if (s->getTag() == 3) {
+					s->fallSpeed(1.0F);
+				}
+				else if (s->getTag() == 2) {
+					s->fallSpeed(9.82F);
+					s->updatePosition();
+				}
 				s->draw();
-				//SDL_RenderCopy(win->getRen(), s->getTexture(), NULL, &s->getRect());
 			}//outer for
-			 //SDL_SetRenderDrawColor(win->getRen(), 255, 50, 0, 255);
 
 			SDL_RenderPresent(win->getRen());
 			frameTime = SDL_GetTicks() - frameStart;

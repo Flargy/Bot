@@ -4,16 +4,20 @@
 
 namespace Bot {
 
-	Player::Player(const char* path, int x, int y):Sprite(path,x,y, 2)
+
+	Player::Player(const char* path, int x, int y):Transform(path,x,y, 2)
 	{ 
 	}
 	void Player::moveRight() {
 		getRect()->x++;
+		//sätt velocity till positiv
 	}
 	void Player::moveLeft() {
 		getRect()->x --;
-		
+
+		//sätt velocity till negativ
 	}
+	
 	void Player::setPlayer() {
 		spr = this;
 	}

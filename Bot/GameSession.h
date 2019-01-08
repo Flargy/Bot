@@ -26,7 +26,7 @@ namespace Bot {
 		//std::vector<Sprite*> removeSprite;
 		//std::vector<Sprite*> addSprite;
 		static GameSession* instance;
-		int FPS = 2;
+		int FPS = 60;
 		int frameDelay = 1000 / FPS;
 		Uint32 frameStart;
 		int frameTime;

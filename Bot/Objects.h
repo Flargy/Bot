@@ -1,13 +1,13 @@
 #ifndef OBJECTS_H
-#define OBJECT_H
-#include "Sprite.h"
+#define OBJECTS_H
 #include <SDL.h>
 #include <SDL_image.h>
+#include "Transform.h"
 #pragma once
 
 
 namespace Bot {
-	class Objects : public Sprite
+	class Objects : public Transform
 		
 	{
 
@@ -20,5 +20,7 @@ namespace Bot {
 	private:
 		
 	};
+
+	extern Objects* obj;
 }
 #endif

@@ -1,13 +1,12 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #pragma once
-#include "Sprite.h"
-#include <SDL.h>
-#include <SDL_image.h>
+#include "Transform.h"
+#include <vector>
 
 namespace Bot {
 
-	class Player : public Sprite
+	class Player : public Transform
 	{
 
 	protected:
@@ -21,7 +20,11 @@ namespace Bot {
 		void pasueFun();
 		Player* getPlayer() { return this; }
 		void setPlayer();
+	
+		
+		
 	private:
+
 		int x , y;
 	};
 	

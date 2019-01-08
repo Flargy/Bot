@@ -18,19 +18,23 @@ namespace Bot {
 		velocity.at(1) = y;
 	}
 
-	void Transform::updatePosition() {
-		getRect()->x = getRect()->x + velocity.at(0); // 0.016 ska ersättas med 1/fps
+	void Transform::updatePosition(float i) {
+		int x = round(getRect()->x + velocity.at(0));
+		int y = round(getRect()->y + velocity.at(1));
+
+		getRect()->x = x;
+		getRect()->y = y;
+
+		if (velocity.at(1) < i) {
+			velocity.at(1) += gravity.at(1) * (1.0F / gs->getFps());
+		}
+		if (velocity.at(1) > -0.3 && velocity.at(1) < 0.2) {
+			velocity.at(1) = 0.6F;
+		}
 		
 	}
 
-	void Transform::fallSpeed(float i) {
 
-		getRect()->y = getRect()->y + velocity.at(1);
-		if (velocity.at(1) < i) {
-			velocity.at(1) = velocity.at(1) + gravity.at(1) * (1.0F / gs->getFps());
-		}
-
-	}
 
 	void Transform::setBounceHeight(float f) {
 		bounceHeight = f;

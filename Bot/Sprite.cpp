@@ -34,5 +34,6 @@ namespace Bot {
 
 	Sprite::~Sprite()
 	{
+
 	}
 }

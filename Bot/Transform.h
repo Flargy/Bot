@@ -17,8 +17,7 @@ namespace Bot {
 		std::vector<float> getGravity() {return gravity; }
 		void setVelocityX(float x);
 		void setVelocityY(float y);
-		void updatePosition();
-		void fallSpeed(float i);
+		void updatePosition(float i);
 		void setBounceHeight(float f);
 		void setMoveSpeed(float f);
 		void setGravityDrag(float f);

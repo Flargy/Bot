@@ -4,7 +4,7 @@
 #include "Collision.h"
 
 
-using namespace std;
+
 namespace Bot {
 	GameSession* GameSession::instance = NULL;
 	GameSession* gs;
@@ -56,7 +56,8 @@ namespace Bot {
 			while (SDL_PollEvent(&event)) {
 				switch (event.type) {
 				case SDL_KEYDOWN:
-					spr->moveRight(); 
+					buttonDown(event.key.keysym.sym);
+				//	anim(event.key.keysym.sym);
 					break;
 				case SDL_MOUSEBUTTONDOWN: break;
 				case SDL_QUIT: quit = true; break;
@@ -70,7 +71,7 @@ namespace Bot {
 			addSprite.clear();
 			
 			for (Sprite* s : removeSprite) {
-				for (vector<Sprite*>::iterator i = spriteVec.begin(); i != spriteVec.end();) {
+				for (std::vector<Sprite*>::iterator i = spriteVec.begin(); i != spriteVec.end();) {
 					if (*i == s) {
 						i == spriteVec.erase(i);
 						delete s;
@@ -101,12 +102,9 @@ namespace Bot {
 
 
 			for (Sprite* s : spriteVec) {
-				if (s->getTag() == 3) {
-					s->fallSpeed(1.0F);
-				}
-				else if (s->getTag() == 2) {
-					s->fallSpeed(9.82F);
-					s->updatePosition();
+				
+				if (s->getTag() == 2) {
+					s->updatePosition(9.82F);
 				}
 				s->draw();
 			}//outer for
@@ -121,7 +119,15 @@ namespace Bot {
 		}//yttre while
 		delete win;     
 	}//GameSession run
-
+	
+	void GameSession::buttonDown(const int button) {
+			bindKey[button]();
+		//if(button )
+	}
+	void GameSession::addKeyBind(int i, std::function<void()> f) {
+	//	keyBind.push_back(std::make_pair(i, f));
+		bindKey[i] = f;
+	}
 	GameSession::~GameSession()
 	{
 	}

@@ -24,7 +24,7 @@ namespace Bot {
 		void draw();
 		virtual void moveLeft() {}
 		virtual void moveRight() {}
-		virtual void updatePosition(){}
+		virtual void updatePosition(float i){}
 		virtual void bounce() {}
 		virtual void fallSpeed(float i) {}
 

@@ -8,17 +8,11 @@ using namespace Bot;
 	Player::Player(const char* path, int x, int y):Transform(path,x,y, 2)
 	{ 
 	}
-	void Player::moveRight(void(*funcR)) {
-		funcR;
-	}
-	void Player::moveLeft(void(*funcL)) {
-		funcL;
-	}
 	void Player::move() {
-	std::cerr << "hjello\n";
+		getRect()->x--;
 	}
-	void Player::moRight(int rX) {
-		getRect()->x += rX;
+	void Player::moRight() {
+		getRect()->x++;
 	}
 	void Player::setPlayer() {
 		spr = this;

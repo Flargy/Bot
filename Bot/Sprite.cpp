@@ -6,7 +6,7 @@
 
 using namespace std;
 namespace Bot {
-	//Window* win;
+	
 	Sprite* spr;
 	Sprite::Sprite(const char* path, int x, int y, int collide) {
 		

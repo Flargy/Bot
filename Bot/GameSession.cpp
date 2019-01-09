@@ -2,20 +2,17 @@
 #include "Background.h"
 #include <iostream>
 #include "Collision.h"
+#include "KeyboardFunctions.h"
 
 
 
 namespace Bot {
-	GameSession* GameSession::instance = NULL;
+	GameSession* GameSession::instance = nullptr;
 	GameSession* gs;
 	
-	
-	//int x = 0;
-	//Window* win;
-
-	std::vector<Sprite*> addSprite;
-	//std::vector<Sprite*> spriteVec;
-	std::vector<Sprite*> removeSprite;
+	void GameSession::pauseG() {
+		pause = !pause;
+	}
 
 	GameSession* GameSession::Instance() {
 		if (!instance)
@@ -44,19 +41,18 @@ namespace Bot {
 
 		
 		bool quit = false;
-
+		
 		while (!quit) {
-			
 			frameStart = SDL_GetTicks();
 			
-		
+			
 			
 			
 			SDL_Event event;
-			while (SDL_PollEvent(&event)) {
+			while (SDL_PollEvent(&event)|| pause) {
 				switch (event.type) {
 				case SDL_KEYDOWN:
-					buttonDown(event.key.keysym.sym);
+					key->buttonDown(event.key.keysym.sym);
 				//	anim(event.key.keysym.sym);
 					break;
 				case SDL_MOUSEBUTTONDOWN: break;
@@ -120,14 +116,6 @@ namespace Bot {
 		delete win;     
 	}//GameSession run
 	
-	void GameSession::buttonDown(const int button) {
-			bindKey[button]();
-		//if(button )
-	}
-	void GameSession::addKeyBind(int i, std::function<void()> f) {
-	//	keyBind.push_back(std::make_pair(i, f));
-		bindKey[i] = f;
-	}
 	GameSession::~GameSession()
 	{
 	}

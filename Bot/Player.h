@@ -12,14 +12,11 @@ namespace Bot {
 	protected:
 		Player(const char* path, int x, int y);
 	public:
-		void moRight(int x);
-		void moveLeft(void(*funcL));
-		void moveRight(void(*funcR)); 
+		void moRight();
 		void move();
 		void buttonEvent(SDL_KeyboardEvent event) {}
 		static Player* getInstance(const char* path, int x = 0, int y = 0);
 		~Player();
-		void pasueFun();
 		Player* getPlayer() { return this; }
 		void setPlayer();
 

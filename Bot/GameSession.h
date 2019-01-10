@@ -5,6 +5,7 @@
 #include <vector>
 #include <functional>
 #include <map>
+#include <memory>
 
 
 namespace Bot {
@@ -12,9 +13,9 @@ namespace Bot {
 	{
 	public:
 		GameSession();
-		void add(Sprite*);
+		//void add(std::shared_ptr<Sprite>);
 		void run();
-		void remove(Sprite*);
+		//void remove();
 		void pauseG();
 		~GameSession();
 		static GameSession* Instance();
@@ -27,10 +28,15 @@ namespace Bot {
 		
 
 	private:
+	//	std::shared_ptr<Level> level;
 		bool pause = false;
-		std::vector<Sprite*> spriteVec;
-		std::vector<Sprite*> addSprite;
-		std::vector<Sprite*> removeSprite;
+	/*	std::vector<std::shared_ptr<Sprite>> spriteVec;
+		std::vector <std::shared_ptr<Sprite>> addSprite;
+		std::vector<std::shared_ptr<Sprite>> removeSprite;*/
+
+		//std::vector<Sprite*> spriteVec;
+		//std::vector<Sprite*> addSprite;
+		//std::vector<Sprite*> removeSprite;
 		/*std::vector < std::pair<int,std::function<void()>>> keyBind;
 		std::map <int, std::function<void()>> bindKey;*/
 		static GameSession* instance;

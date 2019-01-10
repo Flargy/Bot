@@ -10,12 +10,12 @@ namespace Bot {
 	{
 
 	protected:
-		Player(const char* path, int x, int y);
+		Player(const char* path, int x, int y, bool anim, int speed, int index, int frames);
 	public:
 		void moRight();
 		void move();
 		void buttonEvent(SDL_KeyboardEvent event) {}
-		static Player* getInstance(const char* path, int x = 0, int y = 0);
+		static std::shared_ptr<Player> getInstance(const char* path, int x = 0, int y = 0, bool anim = true, int speed = 0, int index = 0, int frames = 0);
 		~Player();
 		Player* getPlayer() { return this; }
 		void setPlayer();

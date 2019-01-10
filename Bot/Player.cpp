@@ -1,11 +1,11 @@
 #include "Player.h"
 #include <iostream>
-
+#include <memory>
 
 using namespace Bot;
 
 
-	Player::Player(const char* path, int x, int y):Transform(path,x,y, 2)
+	Player::Player(const char* path, int x, int y, bool anim, int speed, int index, int frames):Transform(path,x,y, 2, anim, speed, index, frames)
 	{ 
 	}
 	void Player::move() {
@@ -14,11 +14,11 @@ using namespace Bot;
 	void Player::moRight() {
 		getRect()->x++;
 	}
-	void Player::setPlayer() {
-		spr = this;
-	}
-	Player* Player::getInstance(const char* path, int x, int y) {
-		return new Player(path, x, y);
+	/*void Player::setPlayer() {
+		spr = std::make_shared<Sprite>(this);
+	}*/
+	std::shared_ptr<Player> Player::getInstance(const char* path, int x, int y, bool anim, int speed, int index, int frames) {
+		return std::shared_ptr<Player> (new Player(path, x, y, anim, speed, index, frames));
 	}
 
 	Player::~Player()

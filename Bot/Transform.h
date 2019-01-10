@@ -9,7 +9,7 @@ namespace Bot {
 	{
 
 	protected:
-		 Transform(const char* path, int x, int y, int collide);
+		 Transform(const char* path, int x, int y, int collide, bool anim, int speed, int index, int frames);
 
 
 	public:

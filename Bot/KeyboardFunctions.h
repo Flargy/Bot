@@ -1,4 +1,8 @@
 #pragma once
+#ifndef KEYBOARDFUNCTIONS_H
+#define KEYBOARDFUNCTIONS_H
+
+
 #include <functional>
 #include <map>
 #include <vector>
@@ -20,3 +24,4 @@ namespace Bot {
 	};
 	extern KeyboardFunctions* key;
 }
+#endif // !KEYBOARDFUNCTIONS_H

@@ -3,7 +3,7 @@
 
 namespace Bot {
 
-	Transform::Transform(const char* path, int x, int y, int collide):Sprite(path, x, y, collide)
+	Transform::Transform(const char* path, int x, int y, int collide, bool anim, int speed, int index, int frames):Sprite(path, x, y, collide, anim, speed, index, frames)
 	{
 	}
 

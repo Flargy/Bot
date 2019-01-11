@@ -10,27 +10,53 @@
 #include <functional>
 #include "KeyboardFunctions.h"
 #include "Level.h"
+#include "Text.h"
 
 using namespace std;
 using namespace Bot;
+Level* lvl1;
+Level* lvl2;
+std::shared_ptr<Player> play;
+
+void changeLevel(Level* l) {
+	
+	if (lvl == lvl1) {
+		lvl = lvl2;
+		play->resetPos(200, 200);
+	}
+	else {
+		lvl = lvl1;
+		play->resetPos(200, 200);
+
+	}
+}
 
 int main(int argc, char** argv) {
 	using namespace std::placeholders;
 	GameSession::Instance();
 	KeyboardFunctions::Instance();
-	lvl = Level::createLevel();
+	lvl1 = Level::createLevel();
+	lvl2 = Level::createLevel();
 
-	lvl->add(Background::getInstance("F:/ar2/GitHub/Bild/bg.jpg", false));
-	std::cout << "background was created";
-	std::shared_ptr<Player> play = Player::getInstance("F:/ar2/GitHub/Bild/AnimDude.png", 200, 200, true, 100, 1, 4);
-	lvl->add(play);
-	lvl->add(Objects::getInstance("F:/ar2/GitHub/Bild/Robot.jpg", 200, 420, false));
+	lvl = lvl1;
+
+	lvl1->add(Background::getInstance("G:/School/CPROG/Bilder/bg.jpg", false));
+	play = Player::getInstance("G:/School/CPROG/Bilder/FrictionBot.png", 200, 200, true, 100, 1, 4);
+	lvl1->add(play);
+	lvl1->add(Objects::getInstance("G:/School/CPROG/Bilder/robot.jpg", 200, 420, false, false));
+	lvl1->add(Objects::getInstance("G:/School/CPROG/Bilder/platform.png", 400, 450, false, true));
+
+	lvl2->add(Background::getInstance("G:/School/CPROG/Bilder/robot.jpg", false));
+	lvl2->add(play);
+	lvl2->add(Objects::getInstance("G:/School/CPROG/Bilder/bg.jpg", 200, 420, false));
 
 	play->setBounceHeight(-2.0F);
 	play->setGravityDrag(2.0F);
 	play->setMoveSpeed(4.0F);
+	key->addKeyBind(106, std::function<void()>([]() { changeLevel(lvl); }));
 	key->addKeyBind(1073741903, std::bind(&Player::moRight, play));
 	key->addKeyBind(1073741904, std::bind(&Player::move, play));
+	key->addKeyBind(SDLK_o, std::function<void()>([]() {txt->createText(); }));
 	
 
 	std::cout << gs->getFps();

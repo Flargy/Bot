@@ -6,12 +6,13 @@ namespace Bot {
 	class Level
 	{
 	public:
-		void nextLevel(Level* l);
+		void nextLevel();
 		std::vector<std::shared_ptr<Sprite>> getSprite() { return addSprite; };
 		std::vector<std::shared_ptr<Sprite>> getVec() { return spriteVec; };
 		std::vector<std::shared_ptr<Sprite>> getRemove() { return removeSprite; };
 		void add(std::shared_ptr<Sprite>);
 		void remove();
+		void toRemove(std::shared_ptr<Sprite> s);
 		static Level* createLevel();
 		void drawLevel();
 		void addingSprites();

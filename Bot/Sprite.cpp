@@ -1,8 +1,7 @@
 #include "Sprite.h"
 #include "GameSession.h"
-#include <SDL_image.h>
-#include <SDL.h>
 #include <iostream>
+#include <istream>
 
 
 using namespace std;
@@ -11,9 +10,10 @@ namespace Bot {
 	//std::shared_ptr<Sprite> spr;
 	Sprite::Sprite(const char* path, int x, int y, int collide, bool anim, int speed, int index, const int frames) {
 		this->anim = anim;
-		cout << "\n" << "second constructor activated";
 		surf = IMG_Load(path);
 		tx = SDL_CreateTextureFromSurface(gs->getWindow()->getRen(), surf);
+		this->x = x;
+		this->y = y;
 		if(!anim)
 			rect = { x, y, surf->w, surf->h }; 
 		else {
@@ -35,7 +35,10 @@ namespace Bot {
 
 	}
 
-
+	void Sprite::resetPos(int x , int y ) {
+		rect.x = x;
+		rect.y = y;
+	}
 
 	void Sprite::draw() { // Fråga om detta är en ordentlig uppdatefunktion eller en "Tick funktion"
 
@@ -45,14 +48,12 @@ namespace Bot {
 			{
 				
 				sourceRect.x += sourceRect.w;
-				std::cerr << sourceRect.x<< "\n";
 				if (sourceRect.x >= (sourceRect.w*frames)) {
 					sourceRect.x = 0;
 				}
 			}
 			catch (const std::exception&)
 			{
-				std::cerr << "Nien!\n";
 			}
 			
 		
@@ -64,8 +65,6 @@ namespace Bot {
 	}
 	// ekvation för att räkna ut vilken del av sprite sheeten som bör användas
 	// t.ex, en sheet med 30 bilder bör ha att rectens tredje värde är getRect()->w / 30
-
-
 	
 
 	Sprite::~Sprite()

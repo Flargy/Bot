@@ -12,12 +12,14 @@ namespace Bot {
 	{
 
 	protected:
-		Objects(const char* path , int x, int y, bool anim, int speed, int index, int frames);
+		Objects(const char* path , int x, int y, bool anim, bool destructable, int speed, int index, int frames);
 	public:
+		bool getDestructable() { return destructable; }
 		~Objects();
-		static std::shared_ptr<Objects> getInstance(const char* path, int x=0, int y=0, bool anim = false, int speed = 0, int index = 0, int frames = 0);
+		static std::shared_ptr<Objects> getInstance(const char* path, int x = 0, int y = 0, bool anim = false, bool destructable = false, int speed = 0, int index = 0, int frames = 0);
 
 	private:
+		bool destructable;
 		
 	};
 

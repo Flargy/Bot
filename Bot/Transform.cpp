@@ -1,4 +1,5 @@
 #include "Transform.h"
+#include "Level.h"
 
 
 namespace Bot {
@@ -7,7 +8,10 @@ namespace Bot {
 	{
 	}
 
-	void Transform::bounce() {
+	void Transform::collided(std::shared_ptr<Sprite> s) {
+		if (s->getDestructable()) {
+			lvl->toRemove(s);
+		}
 		velocity.at(1) = bounceHeight;
 	}
 
@@ -34,7 +38,13 @@ namespace Bot {
 		
 	}
 
+	void Transform::updateObject() {
+		int x = round(getRect()->x + velocity.at(0));
+		int y = round(getRect()->y + velocity.at(1));
 
+		getRect()->x = x;
+		getRect()->y = y;
+	}
 
 	void Transform::setBounceHeight(float f) {
 		bounceHeight = f;

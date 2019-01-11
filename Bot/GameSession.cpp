@@ -60,7 +60,7 @@ namespace Bot {
 					for (std::shared_ptr<Sprite> r : lvl->getVec()) {
 						if (r->getTag() == 3) {
 							if (Collision::AABB(p->getRect(), r->getRect())) {
-								p->bounce();
+								p->collided(r);
 							}
 						
 						}

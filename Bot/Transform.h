@@ -18,9 +18,11 @@ namespace Bot {
 		void setVelocityX(float x);
 		void setVelocityY(float y);
 		void updatePosition(float i);
+		void updateObject();
 		void setBounceHeight(float f);
 		void setMoveSpeed(float f);
 		void setGravityDrag(float f);
+		void collided(std::shared_ptr<Sprite> s);
 
 		~Transform();
 
@@ -28,7 +30,6 @@ namespace Bot {
 		static Transform* instance;
 		float bounceHeight;
 		float moveSpeed;
-		void bounce();
 		std::vector<float> gravity{ 0.0F, 0.0F };
 		std::vector<float> velocity{ 0.0F, 0.0F };
 		

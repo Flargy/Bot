@@ -4,12 +4,14 @@
 #include <SDL_image.h>
 #include <map>
 #include <memory>
+#include <SDL_ttf.h>
+
 
 namespace Bot {
 
 	class Sprite
 	{
-	
+
 	protected:
 
 		Sprite(const char* path, int x, int y, int collide, bool anim, int speed, int index, int frames);
@@ -17,18 +19,22 @@ namespace Bot {
 	public:
 
 		const char* path;
-		SDL_Rect* getRect() {return &rect;}
-		SDL_Texture* getTexture() {return tx;}
+		SDL_Rect* getRect() { return &rect; }
+		void resetPos(int x, int y);
+		SDL_Texture* getTexture() { return tx; }
 		int getTag() { return collide; }
 		bool getAnim() { return anim; }
 		void setTexture(SDL_Texture* tx) {}
+		void createText(const char* font, int size, int rectX, int rectY);
 		virtual ~Sprite();
 		void draw();
 		virtual void moveLeft() {}
 		virtual void moveRight() {}
-		virtual void updatePosition(float i){}
-		virtual void bounce() {}
+		virtual void updatePosition(float i) {}
+		virtual void updateObject() {}
+		virtual void collided(std::shared_ptr<Sprite>) {}
 		virtual void fallSpeed(float i) {}
+		virtual bool getDestructable() { return false; }
 
 		//virtual Sprite* getInstance() = 0;
 
@@ -46,7 +52,8 @@ namespace Bot {
 		int speed;
 		int index;
 		int frames;
-		int x = 0,y = 0;
+		int x;
+		int y;
 	};
 	//extern std::shared_ptr<Sprite> spr;
 

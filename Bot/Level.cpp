@@ -17,6 +17,9 @@ namespace Bot {
 			if (s->getTag() == 2) {
 				s->updatePosition(9.82F);
 			}
+			else if (s->getTag() == 3) {
+				s->updateObject();
+			}
 			s->draw();
 		}//outer for
 
@@ -29,23 +32,25 @@ namespace Bot {
 		addSprite.clear();
 	}
 
-	void Level::nextLevel(Level* l) {
-		lvl = l;
+	void Level::nextLevel() {
+		lvl;
 	}
 
 	Level* Level::createLevel() {
 		return new Level();
 	}
 
+	void Level::toRemove(std::shared_ptr<Sprite> s) {
+		removeSprite.push_back(s);
+	}
+
 	void Level::remove() {
 		for (std::shared_ptr<Sprite> s : removeSprite) {
-			for (std::vector<std::shared_ptr<Sprite>>::iterator i = spriteVec.begin(); i != spriteVec.end();) {
-				if (*i == s) {
-					i == spriteVec.erase(i);
-
-				}//if
-				else i++;
-			}//inner for
+			for (int i = spriteVec.size()-1; i >= 0; i--) {
+				if (spriteVec[i] == s) {
+					spriteVec.erase(spriteVec.begin() + i);
+				}
+			}
 		}
 		removeSprite.clear();
 	}

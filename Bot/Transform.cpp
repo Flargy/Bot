@@ -58,5 +58,7 @@ namespace Bot {
 
 	Transform::~Transform()
 	{
+		gravity.clear();
+		velocity.clear();
 	}
 }

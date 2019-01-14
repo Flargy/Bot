@@ -6,43 +6,26 @@
 #include "GameSession.h"
 #include "KeyboardFunctions.h"
 
+// Ignorera denna klass
 namespace Bot {
-	//class Text
-	//{
-	//public:
-	//	void createText();
-	//	Text();
-	//	~Text();
-	//private:
-	//	std::string inputText = "";
-	//	SDL_Rect textField{ 500, 50, 30, 30 };
-	//	SDL_Color color{ 0,0,0 };
-	//	SDL_Surface* textSurface;
-	//	SDL_Texture* textTexture;
-	//	SDL_Rect rect;
-	//};
-	//extern Text* txt;
-
 	class Text
 	{
 	public:
-		static Text* getInstance(int x, int y, std::string txt, int size);
-
-		void tick();
-		void draw() const;
+		static Text* Instance();
 		void createText();
-		void changeText(std::string txt);
-
+		Text();
 		~Text();
-	protected:
-		TTF_Font * font;
-		SDL_Color color = { 255,255,255, 255 };
+	private:
+		static Text* instance;
+		std::string inputText = "fisk";
+		SDL_Rect* textField;
+		SDL_Color color{ 0,0,0 };
+		SDL_Surface* textSurface;
+		SDL_Texture* textTexture;
 		SDL_Rect rect;
-		SDL_Surface* txtSurf;
-		SDL_Texture* txtTexture;
-		std::string text;
-		Text(int x, int y, std::string txt, int size);
 	};
 	extern Text* txt;
+
+	// Ignorera denna klass
 }
 #endif // !1

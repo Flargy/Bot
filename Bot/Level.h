@@ -19,10 +19,10 @@ namespace Bot {
 
 		~Level();
 	private:
-		std::shared_ptr<Level> level;
 		std::vector<std::shared_ptr<Sprite>> spriteVec;
 		std::vector<std::shared_ptr<Sprite>> addSprite;
 		std::vector<std::shared_ptr<Sprite>> removeSprite;
+		std::vector<Level*> levelList;
 
 	protected:
 		Level();

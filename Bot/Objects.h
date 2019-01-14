@@ -23,6 +23,5 @@ namespace Bot {
 		
 	};
 
-	extern Objects* obj;
 }
 #endif

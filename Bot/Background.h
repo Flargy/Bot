@@ -18,6 +18,5 @@ namespace Bot {
 	private:
 		int x, y;
 	};
-	extern Background* bg;
 }
 #endif

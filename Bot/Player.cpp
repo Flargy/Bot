@@ -14,9 +14,7 @@ using namespace Bot;
 	void Player::moRight() {
 		getRect()->x++;
 	}
-	/*void Player::setPlayer() {
-		spr = std::make_shared<Sprite>(this);
-	}*/
+	
 	std::shared_ptr<Player> Player::getInstance(const char* path, int x, int y, bool anim, int speed, int index, int frames) {
 		return std::shared_ptr<Player> (new Player(path, x, y, anim, speed, index, frames));
 	}
@@ -24,4 +22,6 @@ using namespace Bot;
 	Player::~Player()
 	{
 		SDL_DestroyTexture(getTexture());
+		delete getRect();
+		delete getSRect();
 	}

@@ -3,7 +3,6 @@
 
 using namespace Bot;
 
-	Objects* obj;
 
 	Objects::Objects(const char* path, int x, int y, bool anim, bool destructable,  int speed, int index, int frames):Transform(path, x,y, 3, anim, speed, index, frames)
 	{ 
@@ -17,6 +16,8 @@ using namespace Bot;
 	Objects::~Objects()
 	{
 		SDL_DestroyTexture(getTexture());
+		delete getRect();
+		delete getSRect();
 	}
 
 

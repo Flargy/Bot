@@ -18,7 +18,6 @@ namespace Bot {
 		static std::shared_ptr<Player> getInstance(const char* path, int x = 0, int y = 0, bool anim = true, int speed = 0, int index = 0, int frames = 0);
 		~Player();
 		Player* getPlayer() { return this; }
-		void setPlayer();
 
 
 

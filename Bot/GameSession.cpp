@@ -34,6 +34,10 @@ namespace Bot {
 		frameDelay = 1000 / FPS;
 	}
 
+	void GameSession::addLevelToList(Level* l) {
+		levelList.push_back(l);
+	}
+
 	void GameSession::run() {
 		bool quit = false;
 		
@@ -79,11 +83,19 @@ namespace Bot {
 
 
 		}//yttre while
-		delete win;     
+		gs->~GameSession();
 	}//GameSession run
 	
 	GameSession::~GameSession()
 	{
-	//	~Window()
+		win->~Window();
+		delete win;
+		for (Level* l : levelList) {
+			l->~Level();
+		}
+		key->~KeyboardFunctions();
+		delete gs;
+
+
 	}
 }

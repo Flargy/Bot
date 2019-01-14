@@ -4,7 +4,6 @@
 
 namespace Bot {
 
-	Background* bg;
 
 	Background::Background(const char* path, int x, int y, bool anim, int speed, int index, int frames):Sprite(path,x,y, 1, anim, speed, index, frames)
 	{ 
@@ -18,5 +17,7 @@ namespace Bot {
 	Background::~Background()
 	{
 		SDL_DestroyTexture(getTexture());
+		delete getRect();
+		delete getSRect();
 	}
 }

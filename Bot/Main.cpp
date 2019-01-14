@@ -35,8 +35,11 @@ int main(int argc, char** argv) {
 	using namespace std::placeholders;
 	GameSession::Instance();
 	KeyboardFunctions::Instance();
+	//Text::Instance();
 	lvl1 = Level::createLevel();
+	gs->addLevelToList(lvl1);
 	lvl2 = Level::createLevel();
+	gs->addLevelToList(lvl2);
 
 	lvl = lvl1;
 
@@ -56,7 +59,7 @@ int main(int argc, char** argv) {
 	key->addKeyBind(106, std::function<void()>([]() { changeLevel(lvl); }));
 	key->addKeyBind(1073741903, std::bind(&Player::moRight, play));
 	key->addKeyBind(1073741904, std::bind(&Player::move, play));
-	key->addKeyBind(SDLK_o, std::function<void()>([]() {txt->createText(); }));
+	//key->addKeyBind(SDLK_o, std::function<void()>([]() {txt->createText(); }));
 	
 
 	std::cout << gs->getFps();

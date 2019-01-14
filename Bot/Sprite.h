@@ -20,12 +20,12 @@ namespace Bot {
 
 		const char* path;
 		SDL_Rect* getRect() { return &rect; }
+		SDL_Rect* getSRect() { return &sourceRect; }
 		void resetPos(int x, int y);
 		SDL_Texture* getTexture() { return tx; }
 		int getTag() { return collide; }
 		bool getAnim() { return anim; }
 		void setTexture(SDL_Texture* tx) {}
-		void createText(const char* font, int size, int rectX, int rectY);
 		virtual ~Sprite();
 		void draw();
 		virtual void moveLeft() {}
@@ -36,14 +36,12 @@ namespace Bot {
 		virtual void fallSpeed(float i) {}
 		virtual bool getDestructable() { return false; }
 
-		//virtual Sprite* getInstance() = 0;
 
 		
 	private:
 
 		SDL_Surface* surf;
 		SDL_Rect rect;
-		SDL_Rect aRect{ 100, 100, 100, 100 };
 		SDL_Rect sourceRect;
 		SDL_Texture* tx;
 		int collide;
@@ -55,7 +53,6 @@ namespace Bot {
 		int x;
 		int y;
 	};
-	//extern std::shared_ptr<Sprite> spr;
 
 
 }

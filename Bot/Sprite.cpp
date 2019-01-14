@@ -7,7 +7,6 @@
 using namespace std;
 namespace Bot {
 	
-	//std::shared_ptr<Sprite> spr;
 	Sprite::Sprite(const char* path, int x, int y, int collide, bool anim, int speed, int index, const int frames) {
 		this->anim = anim;
 		surf = IMG_Load(path);
@@ -40,7 +39,7 @@ namespace Bot {
 		rect.y = y;
 	}
 
-	void Sprite::draw() { // Fråga om detta är en ordentlig uppdatefunktion eller en "Tick funktion"
+	void Sprite::draw() { 
 
 		if (anim) {
 			SDL_RenderCopy(gs->getWindow()->getRen(), getTexture(), &sourceRect, &rect);
@@ -63,8 +62,6 @@ namespace Bot {
 			SDL_RenderCopy(gs->getWindow()->getRen(), getTexture(), NULL, getRect());
 		}
 	}
-	// ekvation för att räkna ut vilken del av sprite sheeten som bör användas
-	// t.ex, en sheet med 30 bilder bör ha att rectens tredje värde är getRect()->w / 30
 	
 
 	Sprite::~Sprite()

@@ -37,8 +37,11 @@ namespace Bot {
 	}
 
 	Level* Level::createLevel() {
-		return new Level();
+
+		 return new Level();
 	}
+
+	
 
 	void Level::toRemove(std::shared_ptr<Sprite> s) {
 		removeSprite.push_back(s);
@@ -57,5 +60,16 @@ namespace Bot {
 
 	Level::~Level()
 	{
+		spriteVec.clear();
+		removeSprite.clear();
+		addSprite.clear();
+		try
+		{
+			delete lvl;
+		}
+		catch (const std::exception&)
+		{
+
+		}
 	}
 }

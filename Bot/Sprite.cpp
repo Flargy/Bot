@@ -45,12 +45,12 @@ namespace Bot {
 			SDL_RenderCopy(gs->getWindow()->getRen(), getTexture(), &sourceRect, &rect);
 			try
 			{
-				
-				sourceRect.x += sourceRect.w;
-				if (sourceRect.x >= (sourceRect.w*frames)) {
-					sourceRect.x = 0;
+					sourceRect.x += sourceRect.w;
+					if (sourceRect.x >= (sourceRect.w*frames)) {
+						sourceRect.x = 0;
+					}
 				}
-			}
+			
 			catch (const std::exception&)
 			{
 			}
@@ -66,6 +66,8 @@ namespace Bot {
 
 	Sprite::~Sprite()
 	{
+		SDL_DestroyTexture(tx);
+
 
 	}
 }

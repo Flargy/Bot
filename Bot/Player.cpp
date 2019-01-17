@@ -21,7 +21,6 @@ using namespace Bot;
 
 	Player::~Player()
 	{
-		SDL_DestroyTexture(getTexture());
-		delete getRect();
-		delete getSRect();
+		Sprite::~Sprite();
+
 	}

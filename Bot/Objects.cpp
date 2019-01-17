@@ -15,9 +15,7 @@ using namespace Bot;
 
 	Objects::~Objects()
 	{
-		SDL_DestroyTexture(getTexture());
-		delete getRect();
-		delete getSRect();
+		Sprite::~Sprite();
 	}
 
 

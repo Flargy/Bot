@@ -16,8 +16,7 @@ namespace Bot {
 
 	Background::~Background()
 	{
-		SDL_DestroyTexture(getTexture());
-		delete getRect();
-		delete getSRect();
+		Sprite::~Sprite();
+
 	}
 }

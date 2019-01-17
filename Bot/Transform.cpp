@@ -1,7 +1,7 @@
 #include "Transform.h"
 #include "Level.h"
 
-
+//denna klass blev inte klar
 namespace Bot {
 
 	Transform::Transform(const char* path, int x, int y, int collide, bool anim, int speed, int index, int frames):Sprite(path, x, y, collide, anim, speed, index, frames)
@@ -61,4 +61,4 @@ namespace Bot {
 		gravity.clear();
 		velocity.clear();
 	}
-}
+}// denna klass blev inte klar

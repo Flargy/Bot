@@ -43,15 +43,15 @@ int main(int argc, char** argv) {
 
 	lvl = lvl1;
 
-	lvl1->add(Background::getInstance("G:/School/CPROG/Bilder/bg.jpg", false));
-	play = Player::getInstance("G:/School/CPROG/Bilder/FrictionBot.png", 200, 200, true, 100, 1, 4);
+	lvl1->add(Background::getInstance("Bilder/bg.jpg", false));
+	play = Player::getInstance("Bilder/FrictionBot.png", 200, 200, true, 100, 1, 4);
 	lvl1->add(play);
-	lvl1->add(Objects::getInstance("G:/School/CPROG/Bilder/robot.jpg", 200, 420, false, false));
-	lvl1->add(Objects::getInstance("G:/School/CPROG/Bilder/platform.png", 400, 450, false, true));
+	lvl1->add(Objects::getInstance("Bilder/robot.jpg", 200, 420, false, false));
+	lvl1->add(Objects::getInstance("Bilder/platform.png", 400, 450, false, true));
 
-	lvl2->add(Background::getInstance("G:/School/CPROG/Bilder/robot.jpg", false));
+	lvl2->add(Background::getInstance("Bilder/robot.jpg", false));
 	lvl2->add(play);
-	lvl2->add(Objects::getInstance("G:/School/CPROG/Bilder/bg.jpg", 200, 420, false));
+	lvl2->add(Objects::getInstance("Bilder/bg.jpg", 200, 420, false));
 
 	play->setBounceHeight(-2.0F);
 	play->setGravityDrag(2.0F);

@@ -63,13 +63,6 @@ namespace Bot {
 		spriteVec.clear();
 		removeSprite.clear();
 		addSprite.clear();
-		try
-		{
-			delete lvl;
-		}
-		catch (const std::exception&)
-		{
-
-		}
+		
 	}
 }

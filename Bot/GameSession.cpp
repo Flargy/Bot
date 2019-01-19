@@ -87,13 +87,14 @@ namespace Bot {
 	
 	GameSession::~GameSession()
 	{
-		win->~Window();
 		delete win;
+		
 		for (Level* l : levelList) {
 			l->~Level();
 		}
+		
 		key->~KeyboardFunctions();
-		delete gs;
+	
 
 
 	}

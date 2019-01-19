@@ -62,9 +62,7 @@ int main(int argc, char** argv) {
 	//key->addKeyBind(SDLK_o, std::function<void()>([]() {txt->createText(); }));
 	
 
-	std::cout << gs->getFps();
 	gs->setFps(60);
-	std::cout << gs->getFps();
 
 	gs->run();
 

@@ -34,6 +34,6 @@ namespace Bot {
 	KeyboardFunctions::~KeyboardFunctions()
 	{
 		bindKey.clear();
-		delete key;
+		//delete key;
 	}
 }

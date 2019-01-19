@@ -21,10 +21,10 @@ För att skapa din första level görs följande:
 "Level pekare"->add(Background::getInstance("Bilder/"bildnamn"", "boolean för animering eller inte"));
 "shared_ptr för Player"= Player::getInstance("Bilder/"bildnamn"", "position i x värde", "position i y värde", "bool för animation", "uppdateringsfrekvens", "antal rader på spritesheet", "antal sprites på rad");
 "Level pekare"->add("shared_ptr för Player");
-"Level pekare"->add(Objects::getInstance("Bilder/"bildnamn"", 200, 420, false, "bool för om objektet ska förstöras vid kontakt med spelaren")); (samma variabler som i getInstance() för Player)
-"Level pekare"->add(Objects::getInstance("Bilder/"bildnamn"", 400, 450, false, "bool för om objektet ska förstöras vid kontakt med spelaren"));
+"Level pekare"->add(Objects::getInstance("Bilder/"bildnamn"", "position i x värde", "position i y värde", "bool för animation", "bool för om objektet ska förstöras vid kontakt med spelaren")); (samma variabler som i getInstance() för Player)
+"Level pekare"->add(Objects::getInstance("Bilder/"bildnamn"", "position i x värde", "position i y värde", "bool för animation", "bool för om objektet ska förstöras vid kontakt med spelaren"));
 
-Skapa ny level genom att göra en till  via "Level::createLevel()" som tidigare förklarat.
+Skapa ny level genom att göra en till Level pekare via "Level::createLevel()" som tidigare förklarat.
 Level kan bytas genom att sätta pekaren "lvl" till en av pekarna du skapade.
 
 
